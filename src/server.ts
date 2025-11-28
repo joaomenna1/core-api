@@ -10,6 +10,7 @@ import { fastifySwagger } from "@fastify/swagger";
 import { fastifyCors } from "@fastify/cors";
 import ScalarApiReference from "@scalar/fastify-api-reference";
 import { env } from './env'
+import { registerPatients } from "./routes/register-patients";
 
 const app = fastify().withTypeProvider<ZodTypeProvider>();
 
@@ -36,6 +37,8 @@ app.register(fastifySwagger, {
 app.register(ScalarApiReference, {
   routePrefix: "/docs",
 });
+
+app.register(registerPatients)
 
 
 

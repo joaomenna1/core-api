@@ -1,0 +1,1 @@
+ALTER TABLE "analyses" ALTER COLUMN "risk_percentage" SET DATA TYPE double precision;

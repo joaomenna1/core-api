@@ -1,4 +1,4 @@
-import { pgTable, text, integer, timestamp, numeric } from "drizzle-orm/pg-core";
+import { pgTable, text, integer, timestamp, numeric, doublePrecision } from "drizzle-orm/pg-core";
 import { uuidv7 } from "uuidv7";
 
 export const patients = pgTable('patients', {
@@ -23,7 +23,7 @@ export const analyses = pgTable("analyses", {
   minBpm: integer().notNull(),
   maxBpm: integer().notNull(),
   classification: text().notNull(),
-  riskPercentage: numeric().notNull(),
+  riskPercentage:doublePrecision().notNull(),
   createdAt: timestamp().defaultNow(),
   patientId: text().notNull().references(() => patients.id),
 });
