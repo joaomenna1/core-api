@@ -11,6 +11,7 @@ import { fastifyCors } from "@fastify/cors";
 import ScalarApiReference from "@scalar/fastify-api-reference";
 import { env } from './env'
 import { registerPatients } from "./routes/register-patients";
+import { listPatient } from "./routes/list-patient";
 
 const app = fastify().withTypeProvider<ZodTypeProvider>();
 
@@ -39,7 +40,7 @@ app.register(ScalarApiReference, {
 });
 
 app.register(registerPatients)
-
+app.register(listPatient)
 
 
 app.listen({ port: env.PORT, host: "0.0.0.0" }).then(() => {
